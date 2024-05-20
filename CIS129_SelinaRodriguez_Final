@@ -1,0 +1,112 @@
+#Selina Rodriguez
+#CIS129_Prog & problem solving
+#Progam is designed to allow users to select items they would like to add or remove from cart. 
+#Code also allows user to generate a report of items. 
+
+#Create a class name Item:
+Initialize the class with attributes:
+	name: name of the item
+	price: price of the item
+	quantity: desired amount
+Define a constructor for the class item:
+	Input parameters: name, price, and quantity
+	set class attributes:
+		set self.name to the input parameter name
+    		set self.price to the input parameter price
+    		set self.quantity to the input parameter quantity
+
+#Create a class named Inventory:
+  Initialize the class with an attribute items as an empty list.
+
+Define a constructor method for the class Inventory:
+   Initialize the items attribute as an empty list.
+
+Define a method add_item(self, item) for the Inventory class:
+  Input parameter: item
+  Append the item to the items list.
+
+Define a method remove_item(self, item_id) for the Inventory class:
+  Input parameter: item_id
+  Iterate through the items list:
+    If an item's id matches the item_id:
+Remove the item from the items list.
+       Print("Item removed successfully!")
+       Return
+  If no item is found with the given item_id:
+     Print "Item not found."
+
+Define the function named update_item that takes field, and value as input parameters:
+  Iterate through each item in the inventory items list:
+    If the item's id matches the provided item_id:
+      Check the field parameter:
+        If field is "name", update the item's name with the provided value
+        If field is "price", update the item's price with the provided value
+        If field is "quantity", update the item's quantity with the provided value
+      Print "Item updated successfully!"
+      Return
+  If no item is found with the given item_id, print "Item not found."
+
+Define a function named generate_report:
+  Initialize total_value to 0
+  Print("Inventory Report")
+  Print("-----------------")
+  Iterate through each item in the inventory items list:
+    Calculate the value of the item (price * quantity)
+    Add the value to total_value
+    Print the item's name, quantity, and value in a formatted manner
+  Print ("-----------------")
+  Print the total value of the inventory items
+Define a function named main:
+#Create an instance of the Inventory class and assign it to the variable inventory.
+Create instances of the Item class with the following details:
+  item1: id=1, name="Mugs", price=0.5, quantity=50
+  item2: id=2, name="Flyers", price=0.75, quantity=30
+  item3: id=3, name="Logo Backpack", price=1.00, quantity=60
+  item4: id=4, name="Mini Foam Fingers", price=0.10, quantity=35
+Add each item to the inventory using the add_item method:
+  Add item1 to the inventory
+  Add item2 to the inventory
+  Add item3 to the inventory
+  Add item4 to the inventory
+
+#displays menu for the user
+Start an infinite loop:
+while True:
+  Display "Inventory Management System" to the user
+  Display the following options to the user:
+    1. Add item
+    2. Remove item
+    3. Update item
+    4. Generate report
+    5. Quit
+  prompt user for input to select an option
+  Use user's input, perform the corresponding action:
+      If the user selects:
+        1: add an item
+        2: remove an item
+        3: update an item
+        4: generate a report
+        5: Exit the program
+  Repeat the loop to display the menu options.
+
+Display prompt to the user to enter a choice (1-5)
+choice = input("Enter your choice (1-5): ")
+Read the user's choice input and store in the variable choice
+
+If choice is equal to "1":
+  Read input for id, name, price, and quantity
+  Create a new Item object with the provided information
+  Add the item to the inventory
+  Print("Item added successfully!")
+Else if choice is equal to "2":
+    Read input for id
+    Remove the item with the specified id from the inventory
+Else if choice is equal to "3":
+    Read input for id, field to update (name/price/quantity), and new value
+    Update the specified field of the item with the new value in the inventory
+Else if choice is equal to "4":
+    Generate a report of the inventory
+Else if choice is equal to "5":
+    Exit the program
+Else:
+    Print("Invalid choice. Please try again.")
