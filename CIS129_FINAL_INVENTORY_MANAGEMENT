@@ -1,0 +1,104 @@
+#Selina Rodriguez
+#CIS129_final
+#05.19.2024
+
+#initialize the class with attributes
+class Item:
+    def __init__(self, id, name, price, quantity):
+        self.id = id
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+#Define constructor
+class Inventory:
+    def __init__(self):
+        self.items = []
+
+#Define a method add_item(self, item) for the Inventory class:
+    def add_item(self, item):
+#Append the item to the items list.
+        self.items.append(item)
+
+#Define a method remove_item(self, item_id) for the Inventory class
+    def remove_item(self, item_id):
+        for item in self.items:
+            if item.id == item_id:
+                self.items.remove(item)
+                print("Item removed successfully!")
+                return
+        print("Item not found.")
+
+#Define the function named update_item that takes field, and value as input parameters:
+    def update_item(self, field, value):
+        for item in self.items:
+            if item.id == item_id:
+                if field == "name":
+                    item.name = value
+                elif field == "price":
+                    item.price = value
+                elif field == "quantity":
+                    item.quantity = value
+                print("Item updated successfully!")
+                return
+        print("Item not found.")
+
+#Define a function named generate_report:
+    def generate_report(self):
+        total_value = 0
+        print("Inventory Report")
+        print("-----------------")
+        for item in self.items:
+#Calculate the value of the item 
+            value = item.price * item.quantity
+            total_value += value
+            print(f"{item.name} - {item.quantity} units - ${value:.2f}")
+        print("-----------------")
+        print(f"Total value of inventory: ${total_value:.2f}")
+
+def main():
+    inventory = Inventory()
+#Create instances of the Item class with the following details:
+    item1 = Item(1, "Mugs", 0.5, 50)
+    item2 = Item(2, "Flyers", 0.75, 30)
+    item1 = Item(1, "Logo Backpack", 1.0, 60)
+    item2 = Item(2, "Foam Finger", 0.10, 35)
+#Add each item to the inventory using the add_item method:
+    inventory.add_item(item1)
+    inventory.add_item(item2)
+#display options
+    while True:
+        print("Inventory Management System")
+        print("1. Add item")
+        print("2. Remove item")
+        print("3. Update item")
+        print("4. Generate report")
+        print("5. Quit")
+#prompt user to input choice
+        choice = input("Enter your choice (1-5): ")
+
+#Start an infinite loop
+        if choice == "1":
+            id = int(input("Enter item ID: "))
+            name = input("Enter item name: ")
+            price = float(input("Enter item price: "))
+            quantity = int(input("Enter item quantity: "))
+            item = Item(id, name, price, quantity)
+            inventory.add_item(item)
+            print("Item added successfully!")
+        elif choice == "2":
+            id = int(input("Enter item ID: "))
+            inventory.remove_item(id)
+        elif choice == "3":
+            id = int(input("Enter item ID: "))
+            field = input("Enter field to update (name/price/quantity): ")
+            value = input("Enter new value: ")
+            inventory.update_item(id, field, value)
+        elif choice == "4":
+            inventory.generate_report()
+        elif choice == "5":
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
